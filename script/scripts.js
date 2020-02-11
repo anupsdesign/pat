@@ -26,3 +26,23 @@ $(".scrollTop").click(function() {
   $("html, body").animate({ scrollTop: 0 }, "medium")
   return false
 })
+
+/* inserted "NEW" jquery code below [line 31-47]*/
+jQuery(function ($) {
+    $.fn.hScroll = function (amount) {
+        amount = amount || 120;
+        $(this).bind("DOMMouseScroll mousewheel", function (event) {
+            var oEvent = event.originalEvent, 
+                direction = oEvent.detail ? oEvent.detail * -amount : oEvent.wheelDelta, 
+                position = $(this).scrollLeft();
+            position += direction > 0 ? -amount : amount;
+            $(this).scrollLeft(position);
+            event.preventDefault();
+        })
+    };
+});
+
+$(document).ready(function() {
+    $('.items').hScroll();
+});
+/*NEW jquery code ends*/

@@ -13,7 +13,7 @@ a:hover{
 }
 .items{
   display: flex;
-  overflow-x: scroll;
+  overflow-x: scroll; /* <- set to auto, change it to scroll*/
   overflow-y: hidden;
   height: 100%;
   color: #fff;
