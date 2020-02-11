@@ -13,7 +13,7 @@ a:hover{
 }
 .items{
   display: flex;
-  overflow-x: auto;
+  overflow-x: scroll;
   overflow-y: hidden;
   height: 100%;
   color: #fff;
@@ -21,9 +21,15 @@ a:hover{
   -webkit-animation: fade-in 1.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) .4s both;
   animation: fade-in 1.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) .4s both;
 }
-::-webkit-scrollbar{
-/*              display: none;*/
+::-webkit-scrollbar {
+    height: 6px;
+    width: 6px; 
+    border: 6px solid RGBA(38, 38, 38, 1);
 }
+::-webkit-scrollbar-thumb:horizontal{
+    background-color: grey;
+    border-radius: 10px;
+    }
 .item2,.item4,.item6{
   -webkit-animation: fade-in 1.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) .6s both;
   animation: fade-in 1.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) .6s both;
@@ -225,6 +231,12 @@ button:hover{
   }
 }
 @media only screen and (max-width: 900px) {
+    ::-webkit-scrollbar {
+    display: none;
+}
+::-webkit-scrollbar-thumb:horizontal{
+    display: none;
+    }
     body{
         padding-top: 0;
     }
