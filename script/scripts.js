@@ -3,11 +3,12 @@ $('.menu-icon').click(function(){
       $('.one').toggleClass('opacity')
       $('.three').toggleClass('opacity')
       $('nav').toggleClass('showNav') 
-      $('nav a').on('click', function() {
+      $('nav a').click(function(){
           $('.one').removeClass('opacity')
           $('.three').removeClass('opacity')
-          $("nav").removeClass('showNav');  
+          $("nav").removeClass('showNav');
       })
+      
   }
 })
 
@@ -27,24 +28,34 @@ $(".scrollTop").click(function() {
   return false
 })
 
-/* inserted "NEW" jquery code below [line 31-47]*/
-jQuery(function ($) {
-    $.fn.hScroll = function (amount) {
-        amount = amount || 120;
-        $(this).bind("DOMMouseScroll mousewheel", function (event) {
+
+$(document).ready(function () {
+        $('.items').mousewheel(function(e, delta) {
             if ($(window).width() > 900) {
-            var oEvent = event.originalEvent, 
-                direction = oEvent.detail ? oEvent.detail * -amount : oEvent.wheelDelta, 
-                position = $(this).scrollLeft();
-            position += direction > 0 ? -amount : amount;
-            $(this).scrollLeft(position);
-            event.preventDefault();
+            this.scrollLeft -= (delta * 5);
+            e.preventDefault();
             }
-        })
-    };
+        });
 });
 
-$(document).ready(function() {
-    $('.items').hScroll();
-});
+/* inserted "NEW" jquery code below [line 31-47]*/
+//jQuery(function ($) {
+//    $.fn.hScroll = function (amount) {
+//        amount = amount || 120;
+//        $(this).bind("DOMMouseScroll mousewheel", function (event) {
+//            if ($(window).width() > 900) {
+//            var oEvent = event.originalEvent, 
+//                direction = oEvent.detail ? oEvent.detail * -amount : oEvent.wheelDelta, 
+//                position = $(this).scrollLeft();
+//            position += direction > 0 ? -amount : amount;
+//            $(this).scrollLeft(position);
+//            event.preventDefault();
+//            }
+//        })
+//    };
+//});
+//
+//$(document).ready(function() {
+//    $('.items').hScroll(12);
+//});
 /*NEW jquery code ends*/
